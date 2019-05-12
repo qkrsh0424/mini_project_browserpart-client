@@ -1,0 +1,33 @@
+.jumbotron_my_green{
+    text-shadow : black 0.2em 0.2em 0.2em;
+    color : white;
+    background: #b5d19b;
+}
+
+.jumbotron_my_gray{
+    background: gray();
+    color:black;
+}
+.card{
+    text-shadow : black 0 0 0;
+}
+
+.background {
+    background-image: url("../../images/background.jpg");
+    background-size: cover;
+    min-height: 100vh;
+    padding-bottom: 50px;
+}
+
+.mycard{
+    width: 18rem; 
+    height: 13rem;
+}
+
+.mycard-text{
+    height: 5rem;
+}
+
+.mycard-body-a{
+    font-size: 6em;
+}

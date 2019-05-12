@@ -1,0 +1,15 @@
+.home_body{
+    margin:0;
+    min-height: 100vh;
+    background: black;
+    display: flex;
+}
+.my_center_h{
+    color: white;
+    text-shadow: black 0.1em 0.1em;
+    font-weight: bold;
+}
+.my_center_h2{
+    color: white;
+    font-weight: 400;
+}

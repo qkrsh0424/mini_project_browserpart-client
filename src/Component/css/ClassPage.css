@@ -1,0 +1,13 @@
+.jumbotron_my_green{
+    text-shadow : black 0.2em 0.2em 0.2em;
+    color : white;
+    background: #b5d19b;
+}
+
+.jumbotron_my_gray{
+    background: gray();
+    color:black;
+}
+.card{
+    text-shadow : black 0 0 0;
+}

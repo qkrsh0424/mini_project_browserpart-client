@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// Page import
+import Home from './Component/Home';
+import MainPage from './Component/MainPage';
+import SignIn from './Component/SignIn';
+import ClassPage from './Component/ClassPage';
+import Profile from './Component/Profile';
+
+class App extends Component {
+  render(){
+    return (
+      <Router>
+        <div>
+          {/* <h2>Welcome to React Router Tutorial</h2>
+          <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <ul className="navbar-nav mr-auto">
+            <li><Link to={'/'} className="nav-link"> Home </Link></li>
+            <li><Link to={'/contact'} className="nav-link">Contact</Link></li>
+            <li><Link to={'/about'} className="nav-link">About</Link></li>
+          </ul>
+          </nav>
+          <hr /> */}
+          <Switch>
+              <Route exact path='/' component={Home} />
+              <Route path='/main' component={MainPage} />
+              <Route path='/signin' component={SignIn} />
+              <Route path='/class/:classid' component={ClassPage} />
+              <Route path='/profile' component={Profile} />
+          </Switch>
+        </div>
+      </Router>
+    );
+  }
 }
 
 export default App;
