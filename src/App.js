@@ -8,6 +8,9 @@ import MainPage from './Component/MainPage';
 import SignIn from './Component/SignIn';
 import ClassPage from './Component/ClassPage';
 import Profile from './Component/Profile';
+import SignUp from './Component/SignUp';
+import CreateClass from './Component/CreateClass';
+import ClassSide from './Component/ClassSide';
 
 class App extends Component {
   render(){
@@ -29,6 +32,9 @@ class App extends Component {
               <Route path='/signin' component={SignIn} />
               <Route path='/class/:classid' component={ClassPage} />
               <Route path='/profile' component={Profile} />
+              <Route path='/signup' component={SignUp} />
+              <Route path='/createclass' component={CreateClass} />
+              <Route path='/class' component={ClassSide} />
           </Switch>
         </div>
       </Router>

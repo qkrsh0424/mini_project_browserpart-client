@@ -85,7 +85,7 @@ class MainPageHeader extends Component {
           {/* loop end */}
           <div class="card border-success mycard">
               <div class="card-body">
-                  <a href="/main/{{sessionuserid}}/createclass" class="mycard-body-a"><i class="fas fa-plus"></i></a>
+                  <a href="/createclass" class="mycard-body-a"><i class="fas fa-plus"></i></a>
               </div>
           </div>
           </div>
@@ -101,7 +101,7 @@ class MainPageHeader extends Component {
       );
       logbuttonHeader.push(
         <div>
-      <a href="/main" class="btn btn-outline-success mr-2 my-2 my-sm-0" aria-haspopup="true" aria-expanded="false">Sign Up</a>
+      <a href="/signup" class="btn btn-outline-success mr-2 my-2 my-sm-0" aria-haspopup="true" aria-expanded="false">Sign Up</a>
       <a href="/signin" class="btn btn-outline-success my-2 my-sm-0" aria-haspopup="true" aria-expanded="false">Sign In</a>
       </div>
       );
@@ -110,7 +110,7 @@ class MainPageHeader extends Component {
           <h1 class="display-4">Easy Study is Easy</h1>
           <p>If you want learn more, first you should sign up or sign in</p>
           <p>
-          <a href="/main" class="btn btn-outline-success btn-lg mr-2 my-2 my-sm-0" aria-haspopup="true" aria-expanded="false">Sign Up</a>
+          <a href="/signup" class="btn btn-outline-success btn-lg mr-2 my-2 my-sm-0" aria-haspopup="true" aria-expanded="false">Sign Up</a>
           <a href="/signin" class="btn btn-outline-success btn-lg my-2 my-sm-0" aria-haspopup="true" aria-expanded="false">Sign In</a>
           </p>
         </div>
