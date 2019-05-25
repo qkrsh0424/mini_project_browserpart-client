@@ -11,6 +11,8 @@ import Profile from './Component/Profile';
 import SignUp from './Component/SignUp';
 import CreateClass from './Component/CreateClass';
 import ClassSide from './Component/ClassSide';
+import LecturePage from './Component/LecturePage';
+import LectureContentsPage from './Component/LectureContentsPage';
 
 class App extends Component {
   render(){
@@ -34,7 +36,9 @@ class App extends Component {
               <Route path='/profile' component={Profile} />
               <Route path='/signup' component={SignUp} />
               <Route path='/createclass' component={CreateClass} />
-              <Route path='/class' component={ClassSide} />
+              <Route path='/class/' component={ClassSide} />
+              <Route path='/lecture/:classid' component={LecturePage} />
+              <Route path='/lecture/:classid/:lectureid' component={LectureContentsPage} />
           </Switch>
         </div>
       </Router>

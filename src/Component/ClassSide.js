@@ -19,6 +19,15 @@ class ClassSide extends Component {
         }
     }
 
+    stateRefresh = () => {
+        this.setState({
+            classlist:''
+        });
+        this.callApi()
+        .then(res => this.setState({classlist: res}))
+        .catch(err => console.log(err))
+    }
+
     componentDidMount(){
         this.callApi()
         .then(res => this.setState({classlist: res}))
@@ -35,6 +44,14 @@ class ClassSide extends Component {
         localStorage.clear();
         window.location.reload();
       }
+
+    deleteClass(classid){
+        const url = '/api/deleteclass/'+classid;
+        fetch(url,{
+            method: 'DELETE'
+        });
+        this.stateRefresh();
+    }
 
   render(){
     const { classes } = this.props;
@@ -97,10 +114,9 @@ class ClassSide extends Component {
                                         <div class="collapse" id={"collapseExample"+row.id}>
                                             <div class="card card-body">
                                                 <h3>Do you want to delete, right?</h3>
-                                                <form class="text-right" onSubmit={this.handleFormSubmit}>
-                                                    <input name="deleteclass" value={row.id} type="hidden"/>
-                                                    <button class="btn btn-outline-danger p-2 my-2 my-sm-0" type="submit">DELETE</button>
-                                                </form>
+                                                <div class="text-right">
+                                                    <button class="btn btn-outline-danger p-2 my-2 my-sm-0" type="submit" onClick={(e)=>{this.deleteClass(row.id)}}>DELETE</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

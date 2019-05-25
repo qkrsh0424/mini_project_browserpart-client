@@ -41,10 +41,10 @@ class ClassPage extends Component {
                         <a class="navbar-brand font-weight-bold" href="/main">Easy Study</a>
                         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                             <li class="nav-item active">
-                                <a class="nav-link" href="/main/classpage/{{classO.id}}">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href={"/class/"+this.state.class.id}>{this.state.class.classname} <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/main/classpage/{{classO.id}}/lecturepage">Lecture</a>
+                                <a class="nav-link" href={"/lecture/"+this.state.class.id}>Lecture</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Homework</a>
