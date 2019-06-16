@@ -23,7 +23,7 @@ class ClassPage extends Component {
     handleLogout = (e) =>{
         localStorage.clear();
         window.location.reload();
-      }
+    }
 
       
   render(){
@@ -53,7 +53,7 @@ class ClassPage extends Component {
                                 <a class="nav-link" href="#">Debate</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Students</a>
+                                <a class="nav-link" href={"/studentList/"+this.state.class.id}>Students</a>
                             </li>
                         </ul>
                         <div class="dropdown">

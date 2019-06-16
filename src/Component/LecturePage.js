@@ -84,6 +84,31 @@ class LecturePage extends Component {
       });
     // return post(url,formData,config);
 }
+
+//delete Big Lecture
+    deleteLecture(lecture_b_id){
+      const url = '/api/deleteBigLecture/'+lecture_b_id;
+
+      fetch(url,{
+        method:'DELETE'
+      });
+
+      this.stateRefresh();
+    }
+
+    stateRefresh = () =>{
+      this.setState({
+        lecturelistB:''
+      });
+      // this.callApi()
+      //   .then(res => this.setState({classlist: res}))
+      //   .catch(err => console.log(err))
+
+      this.callApiLectureBig()
+        .then(res => this.setState({lecturelistB: res}))
+        .catch(err => console.log(err));
+    }
+
   render(){
     const { classes } = this.props;
     if(this.state.userid){
@@ -175,15 +200,16 @@ class LecturePage extends Component {
                         </div>
                         <div class="collapse" id={"collapseController"+row.lecture_b_id}>
                           <div class="card card-body">
-                              <button class="btn btn-outline-success p-2" type="button" onclick='window.location="/main"'>ADD</button>
-                              <button class="btn btn-outline-danger p-2" type="button" onclick='window.location="/main"'>DELETE</button>
+                              <a class="btn btn-outline-success p-2" href={"/makelecture/"+row.class_id+"/"+row.lecture_b_id}>ADD</a>
+                              <button class="btn btn-outline-danger p-2" type="button" onClick={(e)=>{this.deleteLecture(row.lecture_b_id)}}>DELETE</button>
                               <button class="btn btn-outline-primary p-2" type="button" onclick='window.location="/main"'>UPDATE</button>
                           </div>
                         </div>
   
-                        <LectureSmall
+                        {this.state.class.id ? <LectureSmall
+                          classid = {this.state.class.id}
                           lecture_b_id = {row.lecture_b_id}
-                        />
+                        />:<CircularProgress className={classes.progress} />}
                       </div>
                     );
                   }):<CircularProgress className={classes.progress} />}

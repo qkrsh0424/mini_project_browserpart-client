@@ -13,6 +13,9 @@ import CreateClass from './Component/CreateClass';
 import ClassSide from './Component/ClassSide';
 import LecturePage from './Component/LecturePage';
 import LectureContentsPage from './Component/LectureContentsPage';
+import SimpleReactFileUpload from './Component/SimpleReactFileUpload';
+import MakeLecturePage from './Component/MakeLecturePage';
+import StudentListPage from './Component/StudentListPage';
 
 class App extends Component {
   render(){
@@ -38,7 +41,9 @@ class App extends Component {
               <Route path='/createclass' component={CreateClass} />
               <Route path='/class/' component={ClassSide} />
               <Route path='/lecture/:classid' component={LecturePage} />
-              <Route path='/lecture/:classid/:lectureid' component={LectureContentsPage} />
+              <Route path='/lecturecontents/:classid/:lecture_b_id/:lecture_s_id' component={LectureContentsPage} />
+              <Route path='/makelecture/:classid/:lecture_b_id' component={MakeLecturePage} />
+              <Route path='/studentList/:classid' component={StudentListPage} />
           </Switch>
         </div>
       </Router>
