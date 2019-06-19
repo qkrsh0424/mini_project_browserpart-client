@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
+import './css/HomeworkPage.css';
 
-import ListTable from './StudentListPage/ListTable';
-
-class StudentListPage extends Component {
+class HomeworkPage extends Component {
     constructor(props){
         super(props);
-        this.state={
-            userid : localStorage.getItem('userid'),
-            username : localStorage.getItem('username'),
-            classid : this.props.match.params.classid,
-            class:""
+        this.state = {
+            username:localStorage.getItem("username"),
+            class:"",
+            homeworkList:""
         }
     }
 
@@ -17,21 +15,30 @@ class StudentListPage extends Component {
         this.callApi()
         .then(res => this.setState({class: res}))
         .catch(err => console.log(err))
+
+        this.callApiGetHomework()
+        .then(res => this.setState({homeworkList: res}))
+        .catch(err => console.log(err))
     }
-    
+
     callApi = async() => {
-    const response = await fetch('/api/class/'+this.state.classid);
-    const body = await response.json();
-    return body;
+        const response = await fetch('/api/class/'+this.props.match.params.classid);
+        const body = await response.json();
+        return body;
+    }
+
+    callApiGetHomework = async()=>{
+        const response = await fetch('/api/homeworkList/' + this.props.match.params.classid);
+        const body = await response.json();
+        return body;
     }
 
     handleLogout = (e) =>{
         localStorage.clear();
         window.location.reload();
     }
-
   render(){
-      if(this.state.userid){
+      if(localStorage.getItem('userid')){
         return (
             <div className="background">
                 <div className="container">
@@ -49,13 +56,13 @@ class StudentListPage extends Component {
                                     <a class="nav-link" href={"/lecture/"+this.state.class.id}>Lecture</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href={"/homework/"+this.state.class.id}>Homework</a>
+                                    <a class="nav-link active" href={"/homework/"+this.state.class.id}>Homework</a>
                                 </li>
                                 {/* <li class="nav-item">
                                     <a class="nav-link" href="#">Debate</a>
                                 </li> */}
                                 <li class="nav-item">
-                                    <a class="nav-link active" href={"/studentList/"+this.state.class.id}>Students</a>
+                                    <a class="nav-link" href={"/studentList/"+this.state.class.id}>Students</a>
                                 </li>
                             </ul>
                             <div class="dropdown">
@@ -63,23 +70,46 @@ class StudentListPage extends Component {
                                 <div class="dropdown-menu">
                                     <h4 class="dropdown-item-text">{this.state.username}</h4>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="/main">Profile</a>
+                                    <a class="dropdown-item" href="/profile">Profile</a>
                                     <input type="button" class="dropdown-item" onClick={this.handleLogout} value="Logout"/>
                                 </div>
                             </div>
                         </div>
                     </nav>
+    
                     <br/>
-                    <ListTable
-                        classid={this.state.classid}
-                    />
+                    <div className="jumbotron jumbotron_my_gray">
+                        <div class="card-columns text-center">
+                            {/* loop start */}
+                            {this.state.homeworkList ? this.state.homeworkList.map((row)=>{
+                                return(
+                                <div class="card border-success mycard">
+                                    <div class="card-body">
+                                        <h5 class="card-title my_text_title">{row.homework_title}</h5>
+                                        <br/>
+                                        <br/>
+                                        {/* <p class="card-text overflow-auto mycard-text"></p> */}
+                                        <a href={"/gotoHomework/"+this.state.class.id+"/"+row.homework_id} class="btn btn-primary">Go To Homework</a>
+                                    </div>
+                                </div>
+                                );
+                            }) : ""}
+                            {/* loop end */}
+                            <div class="card border-success mycard">
+                                <div class="card-body">
+                                    <a href={"/createHomework/"+this.state.class.id} class="mycard-body-a"><i class="fas fa-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         );
       }else{
-          window.location.href='/main';
+          window.location.href="/main"
       }
+    
   }
 }
 
-export default StudentListPage;
+export default HomeworkPage;

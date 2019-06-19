@@ -16,6 +16,12 @@ import LectureContentsPage from './Component/LectureContentsPage';
 import SimpleReactFileUpload from './Component/SimpleReactFileUpload';
 import MakeLecturePage from './Component/MakeLecturePage';
 import StudentListPage from './Component/StudentListPage';
+import HomeworkPage from './Component/HomeworkPage';
+import CreateHomework from './Component/CreateHomework';
+import GoToHomework from './Component/GoToHomework';
+
+
+import RichTextEx from './Component/RichTextEx';
 
 class App extends Component {
   render(){
@@ -44,6 +50,13 @@ class App extends Component {
               <Route path='/lecturecontents/:classid/:lecture_b_id/:lecture_s_id' component={LectureContentsPage} />
               <Route path='/makelecture/:classid/:lecture_b_id' component={MakeLecturePage} />
               <Route path='/studentList/:classid' component={StudentListPage} />
+              <Route path='/homework/:classid' component={HomeworkPage} />
+              <Route path='/createHomework/:classid' component={CreateHomework} />
+              <Route path='/gotoHomework/:classid/:homework_id' component={GoToHomework} />
+
+
+              {/* example of richtext */}
+              <Route path='/richtext' component={RichTextEx} />
           </Switch>
         </div>
       </Router>

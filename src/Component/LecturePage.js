@@ -130,13 +130,13 @@ class LecturePage extends Component {
                             <a class="nav-link" href={"/lecture/"+this.state.class.id}>Lecture</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Homework</a>
+                            <a class="nav-link" href={"/homework/"+this.state.class.id}>Homework</a>
                         </li>
-                        <li class="nav-item">
+                        {/* <li class="nav-item">
                             <a class="nav-link" href="#">Debate</a>
-                        </li>
+                        </li> */}
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Students</a>
+                            <a class="nav-link" href={"/studentList/"+this.state.class.id}>Students</a>
                         </li>
                     </ul>
                     <div class="dropdown">
