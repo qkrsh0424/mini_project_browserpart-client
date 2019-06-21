@@ -22,6 +22,7 @@ import GoToHomework from './Component/GoToHomework';
 
 
 import RichTextEx from './Component/RichTextEx';
+import DebatePage from './Component/DebatePage';
 
 class App extends Component {
   render(){
@@ -57,6 +58,7 @@ class App extends Component {
 
               {/* example of richtext */}
               <Route path='/richtext' component={RichTextEx} />
+              <Route path='/Debate/:classid' component={DebatePage} />
           </Switch>
         </div>
       </Router>

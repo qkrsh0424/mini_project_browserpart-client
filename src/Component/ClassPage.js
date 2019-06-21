@@ -49,9 +49,9 @@ class ClassPage extends Component {
                             <li class="nav-item">
                                 <a class="nav-link" href={"/homework/"+this.state.class.id}>Homework</a>
                             </li>
-                            {/* <li class="nav-item">
-                                <a class="nav-link" href="#">Debate</a>
-                            </li> */}
+                            <li class="nav-item">
+                                <a class="nav-link" href={"/debate/"+this.state.class.id}>Debate</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href={"/studentList/"+this.state.class.id}>Students</a>
                             </li>
