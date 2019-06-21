@@ -1,6 +1,6 @@
-This space is the client side of Mini-wechat-project.
-If you want to look over the server side, then you should move to following link.
-server side : https://github.com/qkrsh0424/mini_project_browserpart-server
+#This space is the client side of Mini-wechat-project.
+#If you want to look over the server side, then you should move to following link.
+#server side : https://github.com/qkrsh0424/mini_project_browserpart-server
 
 
 
