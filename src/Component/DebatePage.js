@@ -27,7 +27,9 @@ class DebatePage extends Component {
   render(){
     return (
         <div className="container">
-            <DebatePageNav/>
+            <DebatePageNav
+                classid = {this.props.match.params.classid}
+            />
             <DebatePageMessage 
                 classid = {this.props.match.params.classid}
             />

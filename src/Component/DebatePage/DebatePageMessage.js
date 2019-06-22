@@ -178,7 +178,7 @@ class DebatePageMessage extends Component {
             <div>
                 <form onSubmit={this.handleFormSubmit}>
                     <div class="form-group">
-                        <label for="content">user name : </label>
+                        <label for="content">user name : {this.state.user_name}</label>
                         <input type="text" class="form-control" name="content" id="content" placeholder="Enter message..." value={this.state.content} onChange={this.handleValueChange}/>
                     </div>
                     <button type="submit" class="btn btn-primary">Send</button>

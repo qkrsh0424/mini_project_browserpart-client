@@ -5,18 +5,18 @@ class DebatePageNav extends Component {
         super(props);
         this.state = {
             username:localStorage.getItem('username'),
-            classlist:''
+            class:"",
         }
     }
 
     componentDidMount(){
         this.callApi()
-        .then(res => this.setState({classlist: res}))
+        .then(res => this.setState({class: res}))
         .catch(err => console.log(err))
       }
     
       callApi = async() => {
-        const response = await fetch('/api/classlist/'+localStorage.getItem('userid'));
+        const response = await fetch('/api/class/'+this.props.classid);
         const body = await response.json();
         return body;
       }
@@ -34,12 +34,21 @@ class DebatePageNav extends Component {
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                 <a class="navbar-brand font-weight-bold" href="/main">Easy Study</a>
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/main">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item active">
-                    <a class="nav-link" href="/class">Class</a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href={"/class/"+this.state.class.id}>{this.state.class.classname} <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href={"/lecture/"+this.state.class.id}>Lecture</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href={"/homework/"+this.state.class.id}>Homework</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href={"/debate/"+this.state.class.id}>Debate</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href={"/studentList/"+this.state.class.id}>Students</a>
+                </li>
                     {/* <li class="nav-item">
                     <a class="nav-link" href="/news">News</a>
                     </li> */}
